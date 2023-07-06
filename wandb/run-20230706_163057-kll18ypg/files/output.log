@@ -1,0 +1,68 @@
+==========================================
+real base lr:  0.1
+==========================================
+Compose(
+    RandomResizedCrop(size=(224, 224), scale=(0.08, 1.0), ratio=(0.75, 1.3333), interpolation=bilinear), antialias=None)
+    RandomHorizontalFlip(p=0.5)
+    ToTensor()
+    Normalize(mean=(0.485, 0.456, 0.406), std=(0.229, 0.224, 0.225))
+)
+use raw ImageNet data
+local rank 7 / global rank 7 successfully build train dataset
+use raw ImageNet data
+local rank 7 / global rank 7 successfully build val dataset
+=================== Building the vanila RepVGG ===================
+RepVGG Block, identity =  None
+RepVGG Block, identity =  None
+RepVGG Block, identity =  Identity()
+RepVGG Block, identity =  None
+RepVGG Block, identity =  Identity()
+RepVGG Block, identity =  Identity()
+RepVGG Block, identity =  Identity()
+RepVGG Block, identity =  None
+RepVGG Block, identity =  Identity()
+RepVGG Block, identity =  Identity()
+RepVGG Block, identity =  Identity()
+RepVGG Block, identity =  Identity()
+RepVGG Block, identity =  Identity()
+RepVGG Block, identity =  Identity()
+RepVGG Block, identity =  Identity()
+RepVGG Block, identity =  Identity()
+RepVGG Block, identity =  Identity()
+RepVGG Block, identity =  Identity()
+RepVGG Block, identity =  Identity()
+RepVGG Block, identity =  Identity()
+RepVGG Block, identity =  Identity()
+RepVGG Block, identity =  None
+/opt/conda/lib/python3.8/site-packages/torchvision/transforms/transforms.py:329: UserWarning: Argument 'interpolation' of type int is deprecated since 0.13 and will be removed in 0.15. Please use InterpolationMode enum.
+  warnings.warn(
+/opt/conda/lib/python3.8/site-packages/torch/nn/parallel/scatter_gather.py:9: UserWarning: is_namedtuple is deprecated, please use the python checks instead
+  warnings.warn("is_namedtuple is deprecated, please use the python checks instead")
+Traceback (most recent call last):
+  File "main.py", line 424, in <module>
+    main(config)
+  File "main.py", line 160, in main
+    train_one_epoch(config, model, criterion, data_loader_train, optimizer, epoch, mixup_fn, lr_scheduler, model_ema=model_ema)
+  File "main.py", line 215, in train_one_epoch
+    outputs = model(samples)
+  File "/opt/conda/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1186, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/opt/conda/lib/python3.8/site-packages/torch/nn/parallel/distributed.py", line 1009, in forward
+    output = self._run_ddp_forward(*inputs, **kwargs)
+  File "/opt/conda/lib/python3.8/site-packages/torch/nn/parallel/distributed.py", line 970, in _run_ddp_forward
+    return module_to_run(*inputs[0], **kwargs[0])
+  File "/opt/conda/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1186, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/workspace/CSR/QARepVGG/QARepVGG_try/repvgg.py", line 224, in forward
+    out = self.stage0(x)
+  File "/opt/conda/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1186, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/workspace/CSR/QARepVGG/QARepVGG_try/repvgg.py", line 74, in forward
+    return self.nonlinearity(self.rbr_whbn(self.se(self.rbr_dense(inputs) + self.rbr_1x1(inputs) + id_out)))
+  File "/opt/conda/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1186, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/opt/conda/lib/python3.8/site-packages/torch/nn/modules/batchnorm.py", line 170, in forward
+    return F.batch_norm(
+  File "/opt/conda/lib/python3.8/site-packages/torch/nn/functional.py", line 2444, in batch_norm
+    return torch.batch_norm(
+RuntimeError: running_mean should contain 48 elements not 3

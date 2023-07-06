@@ -1,0 +1,100 @@
+wandb_version: 1
+
+_wandb:
+  desc: null
+  value:
+    python_version: 3.8.13
+    cli_version: 0.15.4
+    framework: torch
+    is_jupyter_run: false
+    is_kaggle_kernel: false
+    start_time: 1688653994.982152
+    t:
+      1:
+      - 1
+      - 41
+      - 49
+      - 55
+      - 63
+      2:
+      - 1
+      - 41
+      - 49
+      - 55
+      - 63
+      3:
+      - 1
+      - 23
+      4: 3.8.13
+      5: 0.15.4
+      8:
+      - 5
+opts:
+  desc: null
+  value:
+  - TRAIN.EPOCHS
+  - '300'
+  - TRAIN.BASE_LR
+  - '0.1'
+  - TRAIN.WEIGHT_DECAY
+  - 1e-4
+  - TRAIN.WARMUP_EPOCHS
+  - '5'
+  - MODEL.LABEL_SMOOTHING
+  - '0.1'
+  - AUG.PRESET
+  - weak
+  - AUG.MIXUP
+  - '0.0'
+  - DATA.DATASET
+  - imagenet
+  - DATA.IMG_SIZE
+  - '224'
+arch:
+  desc: null
+  value: RepVGG-A0
+batch_size:
+  desc: null
+  value: 32
+data_path:
+  desc: null
+  value: /workspace/imagenet/
+scales_path:
+  desc: null
+  value: null
+zip:
+  desc: null
+  value: false
+cache_mode:
+  desc: null
+  value: part
+resume:
+  desc: null
+  value: null
+accumulation_steps:
+  desc: null
+  value: null
+use_checkpoint:
+  desc: null
+  value: false
+amp_opt_level:
+  desc: null
+  value: O0
+output:
+  desc: null
+  value: /your/path/to/save/dir
+tag:
+  desc: null
+  value: train_from_scratch
+eval:
+  desc: null
+  value: false
+throughput:
+  desc: null
+  value: false
+local_rank:
+  desc: null
+  value: 3
+wandb:
+  desc: null
+  value: QARepVGG_1st_try

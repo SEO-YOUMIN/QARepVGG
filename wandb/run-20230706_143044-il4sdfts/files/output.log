@@ -1,0 +1,27 @@
+==========================================
+real base lr:  0.1
+==========================================
+Compose(
+    RandomResizedCrop(size=(224, 224), scale=(0.08, 1.0), ratio=(0.75, 1.3333), interpolation=bilinear), antialias=None)
+    RandomHorizontalFlip(p=0.5)
+    ToTensor()
+    Normalize(mean=(0.485, 0.456, 0.406), std=(0.229, 0.224, 0.225))
+)
+use raw ImageNet data
+local rank 3 / global rank 3 successfully build train dataset
+use raw ImageNet data
+local rank 3 / global rank 3 successfully build val dataset
+=================== Building the vanila RepVGG ===================
+/opt/conda/lib/python3.8/site-packages/torchvision/transforms/transforms.py:329: UserWarning: Argument 'interpolation' of type int is deprecated since 0.13 and will be removed in 0.15. Please use InterpolationMode enum.
+  warnings.warn(
+Traceback (most recent call last):
+  File "main.py", line 424, in <module>
+    main(config)
+  File "main.py", line 86, in main
+    model = create_RepVGGplus_by_name(config.MODEL.ARCH, deploy=False, use_checkpoint=args.use_checkpoint)
+  File "/workspace/CSR/QARepVGG/QARepVGG_try/repvggplus.py", line 260, in create_RepVGGplus_by_name
+    from repvgg import get_RepVGG_func_by_name
+  File "/workspace/CSR/QARepVGG/QARepVGG_try/repvgg.py", line 105
+    return kernel, bias
+    ^
+IndentationError: unexpected indent
